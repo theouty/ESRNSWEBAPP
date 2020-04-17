@@ -1,0 +1,7 @@
+<h1> All Clothes </h1>
+<h1><%= link_to "MY CART & PROFILE", user_path(current_user) %></h1> 
+<% @clothes.each do |clothe| %>
+        <h1><%= link_to clothe.name, clothe %></h1>
+<% end %>
+
+

@@ -1,0 +1,5 @@
+<%= form_for @user do |f| %>
+    Email: <%= f.text_field :email %><br><br>
+    What Embodies Your Current Style? <%= f.select :favorite_style, ['City Wear', 'Vintage', 'Gala', 'Surfer', 'Skater']%>
+    <%= f.submit "Submit Edit" %>
+<% end %>

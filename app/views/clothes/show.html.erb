@@ -1,0 +1,9 @@
+<h1><%= @clothe.name %></h1>
+<h1><%= link_to "MY CART", user_path(current_user) %></h1>
+Apparel: <%= @clothe.apparel %><br>
+Style: <%= @clothe.style %><br>
+Price: <%= @clothe.price %><br>
+<%= form_for Cart.new, url: carts_path, method: :post do |f| %>
+    <%= f.hidden_field :clothe_id, value: @clothe.id %>    
+    <%= f.submit "Add to Cart" %>
+    <% end %>

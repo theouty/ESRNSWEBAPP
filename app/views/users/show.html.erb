@@ -1,0 +1,20 @@
+<h1> My Cart </h1>
+<h1>Username: <%= @user.username %></h1>
+<h1>Email: <%= @user.email %><br></h1>
+<h1>Your Favorite Style: <%= @user.favorite_style %></h1>
+
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+<% @user.carts.each do |cart| %>
+    <h2><%= cart.clothe.name %></h1>
+Apparel: <%= cart.clothe.apparel %><br>
+Style: <%= cart.clothe.style %><br>
+Price: <%= cart.clothe.price %><br>
+<%= form_for cart.clothe, url: cart_path, method: :delete do |f| %>
+    <%= f.hidden_field :clothe_id, value: cart.clothe.id %> 
+    <%= f.hidden_field :cart_id, value: cart.id %> 
+
+    <%= f.submit "Delete Item" %>
+<% end %>
+<% end %>
+<%= button_to 'Logout', logout_path, :method => :delete %>
